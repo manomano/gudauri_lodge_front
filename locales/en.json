@@ -2,8 +2,18 @@
   "links": {
     "home": "Home",
     "rooms": "rooms",
-    "english": "English version",
-    "georgian": "Georgian version"
+    "contact": "contact",
+    "english": "EN",
+    "georgian": "KA"
+  },
+  "contact": {
+    "title": "contact",
+    "p_name": "Name",
+    "p_surname": "Surname",
+    "p_email": "Email",
+    "p_phone": "Phone number",
+    "p_submit_text": "send",
+    "p_text": "Text field"
   }
 
 }

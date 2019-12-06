@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <h1>This is the rooms page</h1>
     <p><nuxt-link to="/">Home page</nuxt-link></p>
     <div v-for="room in rooms">

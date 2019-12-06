@@ -12,6 +12,10 @@
           <NuxtLink :to="$i18n.path('rooms')" class="Header__Link" exact>
             {{ $t('links.rooms') }}
           </NuxtLink>
+
+          <NuxtLink :to="$i18n.path('contact')" class="Header__Link" exact>
+            {{ $t('links.contact') }}
+          </NuxtLink>
           <NuxtLink v-if="$i18n.locale === 'en'" :to="`/ka` + $route.fullPath" class="Header__Link" active-class="none" exact>
             {{ $t('links.georgian') }}
           </NuxtLink>
@@ -54,10 +58,10 @@
     clear: both;
   }
   .Header {
-    color: #fff;
+    color: #ff2df1;
     height: 80px;
     line-height: 80px;
-    background-color: #2e2f30;
+    background-color: #404358;
   }
   .Header__Title {
     float: left;
@@ -76,13 +80,14 @@
     text-decoration: none;
     border-radius: 5px;
     margin-left: 10px;
+    font-weight: bold;
   }
   .Header__Link:hover {
     color: #2e2f30;
     background-color: #fff;
   }
   .nuxt-link-active {
-    color: cyan;
+    color: #e539b2;
   }
   .Content {
     padding: 50px 0;

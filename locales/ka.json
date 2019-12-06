@@ -2,8 +2,18 @@
   "links": {
     "home": "მთავარი",
     "rooms": "ოთახები",
-    "english": "ინგლისური",
-    "georgian": "ქართული"
+    "contact": "კონტაქტი",
+    "english": "EN",
+    "georgian": "KA"
+  },
+  "contact": {
+    "title": "კონტაქტი",
+    "p_name": "სახელი",
+    "p_surname": "გვარი",
+    "p_email": "ელ-ფოსტა",
+    "p_phone": "ტელეფონი",
+    "p_submit_text": "გაგზავნა",
+    "p_text": "ტექსტი"
   }
 
 }

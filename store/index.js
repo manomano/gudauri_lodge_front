@@ -19,19 +19,29 @@ export const mutations =  {
     }
   },
   SET_LANG (state, locale) {
+    console.log("SET_LANG")
     if (state.locales.includes(locale)) {
-      state.locale = locale
+      console.log("SET_LANG1");
+      state.locale = locale;
+      console.log("SET_LANG2");
+      console.log("SET_LANG3", state.locale)
     }
   }
 }
 
 export const actions = {
 
-  async nuxtServerInit ({ commit }, { dispatch  }) {
-    return axios.get('http://homestead.test/api/en/home')
+  async nuxtServerInit (context, pcontext) {
+    //console.log("1 nuxtServerInit req=>",pcontext.params.lang);
+
+
+    return axios.get('http://homestead.test/api/'+pcontext.params.lang+'/home')
       .then(response =>
       {
-        commit('setAll', response.data.data);
+        if(response.data.success){
+          context.commit('setAll', response.data.data);
+        }
+
       });
   },
 

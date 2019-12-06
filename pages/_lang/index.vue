@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <h1>Welcome!</h1>
    <!-- <menuBar/>-->
     <p><nuxt-link to="/rooms">rooms page</nuxt-link></p>
@@ -10,10 +10,7 @@
 </template>
 
 <style>
-  .container {
-    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-    padding: 60px;
-  }
+
 </style>
 
 <script>
