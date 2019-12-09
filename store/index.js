@@ -1,5 +1,4 @@
-//import axios  from '../plugins/axios';
-import axios from 'axios';
+
 export const state = ()=>({
   locales: ['en', 'ka'],
   locale: 'en',
@@ -19,12 +18,8 @@ export const mutations =  {
     }
   },
   SET_LANG (state, locale) {
-    console.log("SET_LANG")
     if (state.locales.includes(locale)) {
-      console.log("SET_LANG1");
       state.locale = locale;
-      console.log("SET_LANG2");
-      console.log("SET_LANG3", state.locale)
     }
   }
 }
@@ -32,10 +27,9 @@ export const mutations =  {
 export const actions = {
 
   async nuxtServerInit (context, pcontext) {
-    //console.log("1 nuxtServerInit req=>",pcontext.params.lang);
 
 
-    return axios.get('http://homestead.test/api/'+pcontext.params.lang+'/home')
+    return this.$axios.get('http://homestead.test/api/home')
       .then(response =>
       {
         if(response.data.success){

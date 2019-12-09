@@ -1,10 +1,10 @@
-import axios from 'axios';
+//import vue from 'vue';
+//import axios from 'axios';
+//vue.use(axios);
 
-/*
 
-export default axios.create({
-  baseURL: 'http://homestead.test/api', //process.env.apiBaseUrl
-  headers: {'Content-Type': 'application/json'}
-});
-*/
+
+
+
+
 

@@ -3,7 +3,7 @@
     <header class="Header">
       <div class="container">
         <h1 class="Header__Title">
-          Nuxt i18n
+          {{ $t('links.home') }}
         </h1>
         <nav class="Header__Menu">
           <NuxtLink :to="$i18n.path('')" class="Header__Link" exact>

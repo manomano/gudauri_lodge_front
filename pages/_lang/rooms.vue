@@ -1,10 +1,9 @@
 <template>
   <div>
     <h1>This is the rooms page</h1>
-    <p><nuxt-link to="/">Home page</nuxt-link></p>
     <div v-for="room in rooms">
-      <div class="card-title">{{room.title}}</div>
-      <div>{{room.description}}</div>
+      <div class="card-title">{{room.title[$store.state.locale]}}</div>
+      <div>{{room.description[$store.state.locale]}}</div>
 
     </div>
   </div>
@@ -14,11 +13,20 @@
 
 <script>
 
-    import { mapState } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
+
     export default{
-        computed: mapState([
-            'rooms'
-        ])
+        computed: {
+            ...mapGetters({
+                rooms: 'rooms/getRooms'
+            })
+        },
+        mounted() {
+            this.fetchRooms();
+        },
+        methods: {
+            ...mapActions({fetchRooms:'rooms/fetchRooms'})
+        }
 
     }
 
