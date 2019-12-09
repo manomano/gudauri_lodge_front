@@ -10,12 +10,11 @@
 </template>
 
 
-
 <script>
 
-    import { mapGetters, mapActions } from 'vuex'
+    import {mapGetters, mapActions} from 'vuex'
 
-    export default{
+    export default {
         computed: {
             ...mapGetters({
                 rooms: 'rooms/getRooms'
@@ -25,7 +24,7 @@
             this.fetchRooms();
         },
         methods: {
-            ...mapActions({fetchRooms:'rooms/fetchRooms'})
+            ...mapActions({fetchRooms: 'rooms/fetchRooms'})
         }
 
     }

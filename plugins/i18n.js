@@ -2,9 +2,9 @@ import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import en from '~/locales/ka.json'
 
-Vue.use(VueI18n)
+Vue.use(VueI18n);
 
-export default ({ app, store }) => {
+export default ({app, store}) => {
   // Set i18n instance on app
   // This way we can use it in middleware and pages asyncData/fetch
   app.i18n = new VueI18n({
@@ -14,7 +14,7 @@ export default ({ app, store }) => {
       en: require('~/locales/en.json'),
       ka: require('~/locales/ka.json')
     }
-  })
+  });
 
   app.i18n.path = (link) => {
     if (app.i18n.locale === app.i18n.fallbackLocale) {

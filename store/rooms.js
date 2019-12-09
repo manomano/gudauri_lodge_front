@@ -1,34 +1,32 @@
-
-const state = ()=>({
- rooms: []
+const state = () => ({
+  rooms: []
 });
 
 
-const mutations =  {
-  setRooms (state, data) {
+const mutations = {
+  setRooms(state, data) {
     state.rooms = data;
   },
 
-}
- const getters = {
-    getRooms: function(state){
-        return state.rooms;
-    }
+};
+const getters = {
+  getRooms: function (state) {
+    return state.rooms;
+  }
 
- }
-
+};
 
 
 const actions = {
-  async fetchRooms ({commit}) {
-    const { data } = await this.$axios.get('http://homestead.test/api/rooms');
+  async fetchRooms({commit}) {
+    const {data} = await this.$axios.get('http://homestead.test/api/rooms');
     commit('setRooms', data.data);
   }
-}
+};
 
 
 export default {
-  namespaced : true,
+  namespaced: true,
   getters,
   actions,
   mutations,

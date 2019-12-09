@@ -16,16 +16,18 @@
           <NuxtLink :to="$i18n.path('contact')" class="Header__Link" exact>
             {{ $t('links.contact') }}
           </NuxtLink>
-          <NuxtLink v-if="$i18n.locale === 'en'" :to="`/ka` + $route.fullPath" class="Header__Link" active-class="none" exact>
+          <NuxtLink v-if="$i18n.locale === 'en'" :to="`/ka` + $route.fullPath" class="Header__Link" active-class="none"
+                    exact>
             {{ $t('links.georgian') }}
           </NuxtLink>
-          <NuxtLink v-else :to="$route.fullPath.replace(/^\/[^\/]+/, '')" class="Header__Link" active-class="none" exact>
+          <NuxtLink v-else :to="$route.fullPath.replace(/^\/[^\/]+/, '')" class="Header__Link" active-class="none"
+                    exact>
             {{ $t('links.english') }}
           </NuxtLink>
         </nav>
       </div>
     </header>
-    <Nuxt />
+    <Nuxt/>
   </div>
 </template>
 
@@ -39,6 +41,7 @@
     margin: 0;
     box-sizing: border-box;
   }
+
   html, body {
     background-color: #fff;
     color: #2e2f30;
@@ -48,29 +51,35 @@
     height: 100vh;
     margin: 0;
   }
+
   .container {
     width: 75%;
     margin: 0 auto;
   }
+
   .container:after {
     content: "";
     display: table;
     clear: both;
   }
+
   .Header {
     color: #ff2df1;
     height: 80px;
     line-height: 80px;
     background-color: #404358;
   }
+
   .Header__Title {
     float: left;
     font-weight: 300;
     font-size: 30px;
   }
+
   .Header__Menu {
     float: right;
   }
+
   .Header__Link {
     font-size: 16px;
     color: #fff;
@@ -82,17 +91,21 @@
     margin-left: 10px;
     font-weight: bold;
   }
+
   .Header__Link:hover {
     color: #2e2f30;
     background-color: #fff;
   }
+
   .nuxt-link-active {
     color: #e539b2;
   }
+
   .Content {
     padding: 50px 0;
     text-align: center;
   }
+
   .Content__Title {
     font-weight: 300;
     padding-bottom: 30px;
