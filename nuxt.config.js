@@ -22,13 +22,17 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: ['~assets/css/styles.scss'],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/axios','~/plugins/i18n.js'
+    '~/plugins/axios',
+    '~/plugins/i18n.js',
+    {
+      ssr: false,
+      src: '~/plugins/vue_carousel.js'
+    },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -40,11 +44,10 @@ module.exports = {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
+    /* 'bootstrap-vue/nuxt',*/
     '@nuxtjs/axios',
-
+    '@nuxtjs/style-resources'
   ],
-
   axios:{},
   /*
   ** Build configuration
@@ -60,6 +63,6 @@ module.exports = {
     middleware: 'i18n'
   },
   generate: {
-    routes: ['/', '/rooms', '/ka', '/ka/rooms']
+    routes: ['/', '/about', '/rooms', '/ka', '/ka/rooms', '/ka/about']
   }
 }

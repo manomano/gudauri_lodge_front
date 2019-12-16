@@ -10,9 +10,9 @@ export default function ({isHMR, app, store, route, params, error, redirect}) {
     return error({message: 'This page could not be found.', statusCode: 404})
   }
   // Set locale
-  console.log("before SET_LANG");
+
   store.commit('SET_LANG', locale);
-  console.log("middleware=>", " locale: ", locale, " params.lang: ", params.lang, " store.locale:", store.state.locale);
+
   app.i18n.locale = store.state.locale;
   // If route is /<defaultLocale>/... -> redirect to /...
   if (locale === defaultLocale && route.fullPath.indexOf('/' + defaultLocale) === 0) {
@@ -22,5 +22,5 @@ export default function ({isHMR, app, store, route, params, error, redirect}) {
       route.fullPath.replace(re, '/')
     )
   }
-  console.log("middleware1=>", params.lang, store.locale);
+
 }

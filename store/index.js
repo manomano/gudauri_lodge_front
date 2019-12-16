@@ -1,10 +1,11 @@
 export const state = () => ({
   locales: ['en', 'ka'],
   locale: 'en',
-  aboutus: {},
+  intro: {},
   roomGeneral: {},
   gastronomies: [],
-  services: []
+  services: [],
+  imageLinkPrefix: 'http://homestead.test/storage/'
 });
 
 

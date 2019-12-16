@@ -1,0 +1,790 @@
+//@import "mixins";
+//@import "variables";
+@import "reset";
+
+
+.abs {
+
+  /**
+    * Define Fonts Families
+    */
+
+  @font-face {
+    font-family: 'playfair_displaybold';
+    src: url('../fonts/playfairdisplay-bold-webfont.eot');
+    src: url('../fonts/playfairdisplay-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/playfairdisplay-bold-webfont.woff2') format('woff2'),
+    url('../fonts/playfairdisplay-bold-webfont.woff') format('woff'),
+    url('../fonts/playfairdisplay-bold-webfont.ttf') format('truetype'),
+    url('../fonts/playfairdisplay-bold-webfont.svg#playfair_displaybold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+
+  @font-face {
+    font-family: 'playfair_displayregular';
+    src: url('../fonts/playfairdisplay-regular-webfont.eot');
+    src: url('../fonts/playfairdisplay-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/playfairdisplay-regular-webfont.woff2') format('woff2'),
+    url('../fonts/playfairdisplay-regular-webfont.woff') format('woff'),
+    url('../fonts/playfairdisplay-regular-webfont.ttf') format('truetype'),
+    url('../fonts/playfairdisplay-regular-webfont.svg#playfair_displayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+
+  @font-face {
+    font-family: 'robotoitalic';
+    src: url('../fonts/roboto-italic-webfont.eot');
+    src: url('../fonts/roboto-italic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/roboto-italic-webfont.woff2') format('woff2'),
+    url('../fonts/roboto-italic-webfont.woff') format('woff'),
+    url('../fonts/roboto-italic-webfont.ttf') format('truetype'),
+    url('../fonts/roboto-italic-webfont.svg#robotoitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+
+  @font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+    url('../fonts/roboto-regular-webfont.woff') format('woff'),
+    url('../fonts/roboto-regular-webfont.ttf') format('truetype'),
+    url('../fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+  }
+
+  /*
+     *helper classes
+     */
+  position: absolute;
+}
+
+.rel {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  float: none;
+  clear: both;
+  text-align: center;
+  margin: 0 auto;
+  display: none;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  height: 25px !important;
+}
+
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.flex-left {
+  align-items: center;
+  justify-content: left;
+}
+
+
+.last {
+  margin-right: 0px;
+}
+
+
+.bg-contain-right {
+  background-size: contain;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+.bg-contain-left {
+  background-size: contain;
+  background-position: center left;
+  background-repeat: no-repeat;
+}
+
+/*
+ *end of
+ *helper classes
+ */
+
+
+/**
+*@import "scss mixins and variables";
+*/
+@import "variables";
+@import "mixins";
+
+
+html {
+  font-size: 16px;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: $header;
+  @include flex-vhcenter;
+  width: 100%;
+  height: 7.5rem;
+  z-index: 7;
+}
+
+nav {
+  @include flex-center;
+
+  ul {
+    @include flex-center;
+
+    li {
+      margin-right: 39px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      a {
+        font-family: $playbold;
+        font-size: $small;
+        line-height: 1.5rem;
+        color: $white;
+        letter-spacing: 0.1em;
+        @include title;
+
+      }
+
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  // @include flex-vhcenter;
+  // position:absolute;
+  width: 8%;
+  @include bg-contain;
+  left: 6.51%;
+  @include align-vcenter;
+  z-index: 8;
+  height: 100%;
+
+}
+
+.lang {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 6.92%;
+  height: 100%;
+  background: #1E1E23;
+
+  a {
+    @include flex-vhcenter;
+    position: absolute;
+    @include parentwidth;
+    @include title;
+    opacity: 0;
+    z-index: -555;
+    left: 0px;
+    top: 0px;
+    font-family: $playbold;
+    font-size: $oneem;
+    color: $white;
+
+    &.active {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+}
+
+
+.booking {
+  @include flex-vhcenter;
+  @include column;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  background-color: $darkbeige;
+  width: 6.9%;
+  height: 7.5rem;
+  z-index: 7;
+  padding-top: 0.5rem;
+
+  span {
+    font-family: $playbold;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1em;
+    color: $booking;
+    @include title;
+
+  }
+
+}
+
+.section {
+  position: absolute;
+  height: calc(100% - 7.5rem);
+  width: 100%;
+  z-index: -3;
+  top: 200vh;
+  // top:7.5rem;
+  display: block;
+  transition: all 1s;
+
+  &.active {
+    z-index: 5;
+    top: 7.5rem;
+    display: block;
+    transition: all 1s;
+
+  }
+
+}
+
+.custom-navigation {
+  position: absolute;
+  width: 160px;
+  height: 60px;
+  right: 6.9%;
+  bottom: 44.8%;
+  z-index: 2;
+  @include flex;
+  @include between;
+
+  .flex-prev {
+    @include arrow;
+    background-image: url('../images/arrowleft.svg');
+    background-size: 17px !important;
+  }
+
+  .flex-next {
+    @include arrow;
+    background-image: url('../images/arrowright.svg');
+    background-size: 17px !important;
+  }
+}
+
+.main-description-holder {
+  position: absolute;
+  @include parentwidth;
+  @include flex;
+  justify-content: center;
+
+  .background {
+    @include bg-cover;
+    @include parentwidth;
+    position: absolute;
+
+    &:after {
+      @include after;
+      background: rgba(57, 56, 85, 0.4);
+    }
+  }
+
+  .main-description {
+    position: relative;
+    @include description;
+    align-items: center;
+    margin-top: 9%;
+
+    .title {
+      font-size: 4.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 2.375rem;
+      letter-spacing: 0.25em;
+
+    }
+
+    .text {
+      font-size: $small;
+      max-width: 66%;
+      margin-bottom: 5rem;
+      line-height: 190.19%;
+      text-align: center;
+    }
+  }
+}
+
+#sec_2 {
+  .custom-navigation.rooms {
+    @include align-hcenter;
+    right: auto;
+    bottom: 2.125rem;
+  }
+
+  .rooms-background-holder {
+    background: $beige;
+    @include parentwidth;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 26%;
+      padding-top: 46.45%;
+      left: -1%;
+      top: 0%;
+      // transform: rotate(16.19deg);
+      @include bg-contain;
+      background: url('../images/rooms_light.svg');
+
+    }
+
+    .rooms-title {
+      @include golden;
+      top: 9rem;
+      right: 20%;
+      z-index: 4;
+
+    }
+
+    .rooms-background-dark {
+      height: 73%;
+      width: 93.1%;
+      background: $violet;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      z-index: 1;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 36%;
+        padding-top: 33.89%;
+        right: 9.8%;
+        bottom: 1.26%;
+        @include bg-contain;
+        background: url('../images/rooms_dark.svg');
+
+      }
+    }
+
+    .rooms-info {
+      position: absolute;
+      @include flex;
+      width: 83%;
+      height: calc(100% - 4.9375rem);
+      left: 9.4%;
+      bottom: 0px;
+      z-index: 3;
+
+      .rooms-slider-holder {
+        @include bg-cover;
+        background-image: url('../images/khasheria_slide_1.png');
+        width: 55%;
+        height: 100%;
+        position: relative;
+      }
+
+      .rooms-description-holder {
+        height: 80%;
+        margin-left: 5%;
+        margin-top: 0;
+        align-self: flex-end;
+        @include flex-vhcenter;
+        justify-content: left;
+
+        .rooms-description {
+          @include description;
+          width: 75%;
+
+          .title {
+            font-size: 3.75rem;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+#gastronomy {
+  .gastronomy-background-holder {
+    @include parentwidth;
+    background: $beige;
+
+    .gastronomy-title {
+      @include golden;
+      font-size: 6.875rem;
+      top: 1%;
+      right: 6.8%;
+    }
+
+    .gastronomy-slider-holder {
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 5.5625rem);
+      bottom: 0;
+      left: 0px;
+      @include bg-cover;
+      background-image: url('../images/khasheria_slide_1.png')
+
+    }
+
+    .gastronomy-description-holder {
+      position: absolute;
+      bottom: 0px;
+      right: 6.9%;
+      background: $violet;
+
+      width: 34%;
+      // @include flex-vh-center;
+
+      .gastronomy-description {
+
+        @include description;
+        margin: 5.5625rem 2% 6.875rem 12%;
+        width: 75%;
+      }
+    }
+
+    .custom-navigation {
+      position: absolute;
+      top: 4rem;
+      left: 9.6%;
+    }
+
+  }
+}
+
+#terrace {
+  .terrace-background-holder {
+    @include parentwidth;
+    background: $beige;
+
+    .terrace-title {
+      @include golden;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      right: 3.8%;
+      top: 1.375rem;
+      z-index: 2;
+    }
+
+    .terrace-info {
+      @include column;
+      background: $violet;
+      width: 93.1%;
+      height: 100%;
+      padding: 3.875em 0 0 5.2%;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 35.23%;
+        padding-top: 33.89%;
+        right: -2.8%;
+        bottom: 43.26%;
+        transform: rotate(16.19deg);
+        background: url('../images/terrace.svg');
+      }
+
+      .terrace-description {
+        @include description;
+        width: 31%;
+        flex-grow: 1;
+        z-index: 1;
+      }
+
+      .terrace-main-photo {
+        z-index: 1;
+        height: 58%;
+        @include bg-cover;
+        width: 100%;
+      }
+    }
+  }
+}
+
+#spa {
+  .spa-title {
+
+    @include golden;
+    font-size: $titleXxl;
+    z-index: 5;
+    bottom: -3%;
+    left: 74.37%;
+
+  }
+
+  .spa-slider-holder {
+    @include parentwidth;
+    position: relative;
+
+    .flexslider, .slides, .slides li {
+      @include parentwidth;
+
+    }
+
+    .flexslider {
+      margin: 0 0 0px;
+      background: transparent;
+      border: 0px solid transparent;
+      position: relative;
+      zoom: 1;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      -webkit-box-shadow: inherit 0 0px 0px rgba(0, 0, 0, 0);
+      -moz-box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0);
+      -o-box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0);
+      box-shadow: '' 0 0px 0px rgba(0, 0, 0, 0);
+
+      .slides {
+        li {
+          @include bg-cover;
+        }
+      }
+    }
+
+    .custom-controls-container {
+      position: absolute;
+      z-index: 3;
+      right: 30.28%;
+      bottom: 34%;
+
+      .flex-control-nav.flex-control-paging {
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        @include flex;
+        @include between;
+      }
+
+      .flex-control-nav li {
+        margin: 0 20px 0 20px;
+        display: inline-block;
+        zoom: 1;
+
+      }
+
+      .flex-control-paging li a {
+        @include flex;
+        align-items: baseline;
+        justify-content: flex-end;
+        display: block;
+        background: transparent;
+        background: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        text-indent: none !important;
+        -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+        -moz-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+        -o-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+        box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        font-family: & playbold;
+        font-size: $titleXs;
+        color: rgba(255, 255, 255, 0.5);
+
+        &.flex-active {
+          background: rgba(0, 0, 0, 0);
+          cursor: default;
+          font-size: $titleS;
+          letter-spacing: 0.09em;
+          color: $white;
+          background: rgba(0, 0, 0, 0);
+          text-indent: none !important;
+
+        }
+
+      }
+
+    }
+  }
+
+  .spa-info {
+    position: absolute;
+    width: 93.1%;
+    // height:14.58%;
+    bottom: 0px;
+    z-index: 2;
+
+    .spa-background {
+      padding: 4rem 5% 4.5625rem 10%;
+      background: $violet;
+      overflow: hidden;
+      position: relative;
+      @include parentwidth;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 27%;
+        padding-top: 46%;
+        left: 55.66%;
+        bottom: -6.29%;
+        transform: matrix(0.87, -0.52, 0.48, 0.86, 0, 0);
+        background-image: url('../images/spa.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+
+      }
+
+    }
+
+    .spa-description {
+      @include description;
+      width: 27.40%;
+    }
+  }
+}
+
+#services {
+  height: auto;
+
+  .services-background-holder {
+    background-color: $beige;
+    position: relative;
+    @include parentwidth;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 41%;
+      padding-top: 54%;
+      left: 55.66%;
+      bottom: 6.29%;
+      opacity: 0.4;
+      top: -14.29%;
+      opacity: 0.4;
+      transform: rotate(15deg);
+      background-image: url('../images/srvices.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+
+    }
+
+  }
+
+  .services-info {
+    width: 100%;
+    padding-top: 6.5rem;
+    @include column;
+
+    .services-description {
+      width: 25.52%;
+      margin-left: 10%;
+      margin-bottom: 7.9375rem;
+      @include description;
+      color: $violetfont !important;
+
+      .pretitle, .text, a {
+        color: $violetfont;
+
+      }
+
+      .pretitle {
+        &:before {
+          background: $violetfont;
+        }
+      }
+    }
+
+    .services {
+
+      @include between;
+      z-index: 1;
+      margin-bottom: 4.5rem;
+
+      .service {
+        width: 33.1%;
+        @include column;
+        position: relative;
+
+        a {
+          position: absolute;
+          @include parentwidth;
+        }
+
+        .service-title {
+          background: $violet;
+          height: 7rem;
+          width: 100%;
+          @include flex-vhcenter;
+          font-family: $playbold;
+          font-size: $titleXs;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: $white;
+
+        }
+
+        .service-image {
+          width: 100%;
+          padding-top: 72%;
+          @include bg-cover;
+        }
+
+      }
+    }
+
+  }
+
+  .footer {
+    @include flex-center;
+    @include between;
+    width: 100%;
+    height: 6.875rem;
+    background: $header;
+    padding: 0px 5.2%;
+
+    .social-networks {
+      @include between;
+
+      a {
+        text-transform: capitalize;
+        font-family: $robotoreg;
+        font-weight: 500;
+        font-size: $oneem;
+        color: $white;
+        margin-right: 33px;
+      }
+    }
+
+    .privacy-and-terms {
+      @extend .social-networks;
+    }
+
+  }
+
+
+}
