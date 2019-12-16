@@ -3,7 +3,8 @@ export const state = () => ({
   locale: 'en',
   intro: {},
   roomGeneral: {},
-  gastronomies: [],
+  spa_gym: {},
+  khasheria: {},
   services: [],
   imageLinkPrefix: 'http://homestead.test/storage/'
 });
