@@ -268,12 +268,14 @@ nav {
   transition-duration: 0s, 2s;
 
 
+
   &.active {
     z-index: 5;
     top: 7.5rem;
     display: block;
     opacity: 1;
     transition: all 2s;
+    transition-timing-function: cubic-bezier(.23, 1, .32, 1);
   }
 
   /*&::after {
@@ -306,14 +308,13 @@ nav {
 
 
 
-
 .custom-navigation {
   position: absolute;
   width: 160px;
   height: 60px;
   right: 6.9%;
   bottom: 44.8%;
-  z-index: 2;
+  z-index: 6;
   @include flex;
   @include between;
 
@@ -321,12 +322,14 @@ nav {
     @include arrow;
     background-image: url('../images/arrowleft.svg');
     background-size: 17px !important;
+    cursor: pointer;
   }
 
   .flex-next {
     @include arrow;
     background-image: url('../images/arrowright.svg');
     background-size: 17px !important;
+    cursor: pointer;
   }
 }
 
@@ -367,6 +370,11 @@ nav {
       margin-bottom: 5rem;
       line-height: 190.19%;
       text-align: center;
+
+    }
+
+    .text::first-letter {
+      initial-letter: 2;
     }
   }
 }
@@ -441,12 +449,14 @@ nav {
         /*background-image: url('../images/khasheria_slide_1.png');*/
         width: 55%;
         height: 100%;
-        position: relative;
+        position: absolute;
       }
 
       .rooms-description-holder {
+        position: absolute;
+        left: 60%;
         height: 80%;
-        margin-left: 5%;
+        //margin-left: 5%;
         margin-top: 0;
         align-self: flex-end;
         @include flex-vhcenter;

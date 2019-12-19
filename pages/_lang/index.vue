@@ -8,7 +8,7 @@
       <div class="main-description-holder">
 
 
-        <div class="background bg-cover " :style="{'background-image': `url(${introBackgroundUrl})`}">
+        <div class="background bg-cover " :style="{'background-image': `url(${imageLinkPrefix+introBackgroundUrl})`}">
         </div>
         <div class="main-description description">
           <h1 class="title">
@@ -46,16 +46,40 @@
         <div class="rooms-info">
           <div class="rooms-slider-holder">
 
-            <no-ssr>
-              <carousel :data="slides"></carousel>
-            </no-ssr>
+            <!--<carousel>
+              <slide :key="'room_'+index" v-for="(image, index) in $store.state.roomGeneral.photos.map(x=>{
+                x.url = this.imageLinkPrefix + x.image;
+                return x;
+              } )">
+                <div
+
+
+                     :style="{'background-image': `url(${image.url})`}"
+                >{{index}}</div>
+              </slide>
+
+            </carousel>-->
+
+
+            <my-carousel :images="$store.state.roomGeneral.photos.map(x=>{
+                x.url = this.imageLinkPrefix + x.image;
+                return x;
+              } )" :navigationClasses="{navContainer:'custom-navigation rooms',
+              'prev':'flex-prev',
+               'next':'flex-next',
+               navContainerIndexed: 'indexed-navigation',
+               selectedIndex:'selected', notSelected:'not-selected'
+
+                }">
+
+            </my-carousel>
 
 
             <!--  <div class="custom-navigation rooms">
-                <a href="#" class="flex-prev"></a>
+              <a href="#" class="flex-prev"></a>
 
-                <a href="#" class="flex-next"></a>
-              </div>-->
+              <a href="#" class="flex-next"></a>
+            </div>-->
           </div>
           <div class="rooms-description-holder">
             <div class="rooms-description description">
@@ -145,20 +169,33 @@
     position: relative;
 
   }
+
+
 </style>
 
 <script>
 
-    import {mapState} from 'vuex'
+    import {mapState} from 'vuex';
+    import MyCarousel from "~/components/MyCarousel.vue";
+    // import { Carousel, Slide } from "~/plugins/vue_carousel.vue";
 
 
     export default {
+        components: {
+            MyCarousel,
+            /*  Carousel,
+              Slide*/
+        },
         computed: mapState([
-            'services', 'intro', 'imageLinkPrefix', 'roomGeneral', 'spa_gym', 'khasheria'
+            'services', 'intro', 'roomGeneral', 'spa_gym', 'khasheria'
         ]),
+        mounted() {
+            //this.imageLinkPrefix = process.env.imageLinkPrefix;
+            //this.introBackgroundUrl = process.env.imageLinkPrefix + this.introBackgroundUrl;
+        },
         data() {
             return {
-                introBackgroundUrl: this.$store.state.imageLinkPrefix + this.$store.state.intro.image,
+                introBackgroundUrl: this.$store.state.intro.image,
                 seemore: require('~/assets/images/seemore.svg'),
                 activeSectionIndex: 1,
                 sectionCount: 3,
@@ -167,7 +204,8 @@
                     '<div class="example-slide">Slide 2</div>',
                     '<div class="example-slide">Slide 3</div>',
                 ],
-                wheelEventDateTime: null
+                wheelEventDateTime: null,
+                imageLinkPrefix: process.env.imageLinkPrefix
             }
         },
         methods: {
@@ -195,7 +233,7 @@
                         }
                     }
                     self.wheelEventDateTime = new Date()
-                }, 1000);
+                }, 200);
 
 
             },

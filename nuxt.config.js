@@ -1,9 +1,16 @@
+require('dotenv').config();
 
 module.exports = {
   //mode: 'spa',
   /*
   ** Headers of the page
   */
+  env: {
+    apiBaseUrl: process.env.apiBaseUrl || 'http://localhost:3000',
+    imageLinkPrefix: process.env.imageLinkPrefix
+  },
+
+
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -37,8 +44,7 @@ module.exports = {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-  ],
+  buildModules: [],
   /*
   ** Nuxt.js modules
   */
@@ -46,7 +52,8 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org
     /* 'bootstrap-vue/nuxt',*/
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    "@nuxtjs/dotenv"
   ],
   axios:{},
   /*
@@ -56,7 +63,19 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    /*extend (config, ctx) {
+    }*/
+    filenames: {
+      chunk: '[name].js'
+    },
     extend (config, ctx) {
+      const path = require('path');
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        if (ctx.isDev && ctx.isClient) {
+          config.devtool = '#source-map'
+        }
+      }
     }
   },
   router: {
