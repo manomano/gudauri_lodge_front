@@ -6,6 +6,7 @@ export const state = () => ({
   spa_gym: {},
   khasheria: {},
   services: [],
+  terrace: {}
   //imageLinkPrefix: 'http://homestead.test/storage/'
 });
 

@@ -46,21 +46,6 @@
         <div class="rooms-info">
           <div class="rooms-slider-holder">
 
-            <!--<carousel>
-              <slide :key="'room_'+index" v-for="(image, index) in $store.state.roomGeneral.photos.map(x=>{
-                x.url = this.imageLinkPrefix + x.image;
-                return x;
-              } )">
-                <div
-
-
-                     :style="{'background-image': `url(${image.url})`}"
-                >{{index}}</div>
-              </slide>
-
-            </carousel>-->
-
-
             <my-carousel :images="$store.state.roomGeneral.photos.map(x=>{
                 x.url = this.imageLinkPrefix + x.image;
                 return x;
@@ -68,18 +53,15 @@
               'prev':'flex-prev',
                'next':'flex-next',
                navContainerIndexed: 'indexed-navigation',
-               selectedIndex:'selected', notSelected:'not-selected'
+               selectedIndex:'selected',
+               notSelected:'not-selected',
+               prefix:'room'
 
                 }">
-
             </my-carousel>
 
 
-            <!--  <div class="custom-navigation rooms">
-              <a href="#" class="flex-prev"></a>
 
-              <a href="#" class="flex-next"></a>
-            </div>-->
           </div>
           <div class="rooms-description-holder">
             <div class="rooms-description description">
@@ -116,14 +98,20 @@
           gastronomy
         </h2>
         <div class="gastronomy-slider-holder">
-          <div class="custom-navigation gastronomy">
-            <a href="#" class="flex-prev"></a>
 
-            <a href="#" class="flex-next"></a>
-          </div>
-          <div class="custom-controls-container">
+          <my-carousel :images="$store.state.khasheria.photos.map(x=>{
+                x.url = this.imageLinkPrefix + x.image;
+                return x;
+              } )" :navigationClasses="{navContainer:'custom-navigation gastronomy',
+              'prev':'flex-prev',
+               'next':'flex-next',
+               navContainerIndexed: 'indexed-navigation',
+               selectedIndex:'selected',
+               notSelected:'not-selected',
+               prefix:'khasheria'
 
-          </div>
+                }">
+          </my-carousel>
 
         </div>
         <div class="gastronomy-description-holder">
@@ -146,7 +134,89 @@
         </div>
       </div>
     </div>
+    <div class="section" id="terrace"
+         v-bind:class="{ active: (activeSectionIndex==4),  upPosition:(activeSectionIndex>4) }">
+      <div class="terrace-background-holder">
+        <h2 class="terrace-title section-title">
+          gastronomy
+        </h2>
+        <div class="terrace-info">
 
+          <div class="terrace-description description">
+            <div class="pretitle">
+              we offer
+            </div>
+            <h1 class="title">
+              {{$store.state.terrace.title[$store.state.locale]}}
+            </h1>
+            <div class="text">
+              {{$store.state.terrace.description[$store.state.locale]}}
+            </div>
+            <!--  <a href="" class="seemore">
+                     see more
+                 <span style="background-image:url(./images/seemore.svg)"></span>
+             </a> -->
+
+          </div>
+          <div class="terrace-main-photo"
+               :style="{backgroundImage:`url(${imageLinkPrefix+$store.state.terrace.image})`}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="spa"
+         v-bind:class="{ active: (activeSectionIndex==5),  upPosition:(activeSectionIndex>5) }">
+      <h2 class="spa-title section-title">
+        spa
+      </h2>
+      <div class="spa-slider-holder">
+
+        <my-carousel :images="$store.state.spa_gym.photos.map(x=>{
+                x.url = this.imageLinkPrefix + x.image;
+                return x;
+              } )" :navigationClasses="{
+              navContainer:'custom-navigation spa',
+              'prev':'flex-prev',
+               'next':'flex-next',
+               navContainerIndexed: 'indexed-navigation',
+               selectedIndex:'selected',
+               notSelected:'not-selected',
+               prefix:'spa_gym'
+
+                }">
+        </my-carousel>
+
+
+      </div>
+      <div class="spa-info">
+        <div class="spa-background">
+
+
+          <div class="spa-description description">
+            <div class="pretitle">
+              we offer
+            </div>
+            <h1 class="title">
+
+              {{$store.state.spa_gym.page_title[$store.state.locale]}}
+            </h1>
+            <div class="text">
+
+              {{$store.state.spa_gym.page_description[$store.state.locale]}}
+
+            </div>
+            <!-- <a href="" class="seemore">
+                    see more
+                <span style="background-image:url(./images/seemore.svg)"></span>
+            </a> -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 
@@ -187,7 +257,7 @@
               Slide*/
         },
         computed: mapState([
-            'services', 'intro', 'roomGeneral', 'spa_gym', 'khasheria'
+            'services', 'intro', 'roomGeneral', 'spa_gym', 'khasheria', 'terrace'
         ]),
         mounted() {
             //this.imageLinkPrefix = process.env.imageLinkPrefix;
@@ -198,7 +268,7 @@
                 introBackgroundUrl: this.$store.state.intro.image,
                 seemore: require('~/assets/images/seemore.svg'),
                 activeSectionIndex: 1,
-                sectionCount: 3,
+                sectionCount: 5,
                 slides: [
                     '<div class="example-slide">Slide 1</div>',
                     '<div class="example-slide">Slide 2</div>',

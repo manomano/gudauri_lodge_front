@@ -15,7 +15,7 @@
       left:(index===prevIndex),
       right:(index===nextIndex),
       inactive:([nextIndex, prevIndex, activeElementIndex].indexOf(index)<0)  }"
-         :key="index"
+         :key="navigationClasses.prefix+index"
          :style="{'background-image': `url(${image.url})`}"
     >{{index}}
     </div>
@@ -57,7 +57,8 @@
                         prev: '',
                         next: '',
                         selectedIndex: 'selected',
-                        notSelected: 'not-selected'
+                        notSelected: 'not-selected',
+                        prefix: 'general'
                     }
                 }
             }
