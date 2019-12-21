@@ -55,6 +55,13 @@ module.exports = {
     '@nuxtjs/style-resources',
     "@nuxtjs/dotenv"
   ],
+  styleResources: {
+    scss: [
+      /* './assets/css/!*.scss',*/
+      './assets/css/_mixins.scss',// use underscore "_" & also file extension ".scss"
+      './assets/css/_variables.scss'
+    ]
+  },
   axios:{},
   /*
   ** Build configuration

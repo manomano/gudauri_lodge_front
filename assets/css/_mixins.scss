@@ -33,7 +33,6 @@
   justify-content: center;
 
 }
-
 // horisontal and vertical aligning
 @mixin align-vhcenter {
   position: absolute;
@@ -85,7 +84,6 @@
 @mixin title {
   text-transform: uppercase;
 }
-
 //Media Queries
 @mixin text {
   font-family: $playreg;
@@ -118,7 +116,6 @@
   border-radius: 100%;
   background-size: 17px;
 }
-
 // golden big title
 @mixin golden {
   position: absolute;
@@ -128,6 +125,74 @@
   font-size: $titleXl;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+}
+
+@mixin seemore {
+  @include flex-center;
+  margin-top: 2.125rem;
+  position: relative;
+  cursor: pointer;
+  .btn-text {
+    text-decoration: none;
+    font-family: $playbold;
+    font-size: $seemore;
+    letter-spacing: 0.05em;
+    color: $main-color;
+    text-decoration: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+        to right,
+        $secondary-color,
+        $secondary-color 50%,
+        $main-color 50%);
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: all 1s linear;
+    width: 100px;
+    position: relative;
+    height: 1.25rem;
+  }
+  .seemore-arrow {
+    width: 43px;
+    height: 10px;
+    @include bg-cover;
+  }
+  .circle {
+    position: absolute;
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    left: 126px;
+    bottom: -3px;
+
+    &:before {
+      position: absolute;
+      content: '';
+      // width:1.75rem;
+      // height:1.75rem;
+      // border-radius:100%;
+
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      // width:1.75rem;
+      // height:1.75rem;
+      // border-radius:100%;
+
+    }
+  }
+  &:hover {
+    .btn-text {
+      transition: all 500ms ease;
+      background-position: 0%;
+    }
+  }
+
 }
 
 @mixin description {
@@ -169,386 +234,77 @@
     @include text;
 
   }
+  // .seemore{
+  // 	@include flex-center;
+  // 	margin-top:2.125rem;
+  // 	position:relative;
+
+  // 	a{
+  // 		text-decoration:none;
+  // 	font-family: $playbold;
+  // 	font-size: $seemore;
+  // 	letter-spacing: 0.05em;
+  // 	color: $main-color;
+  // 	text-decoration: none;
+  // 	-webkit-background-clip: text;
+  // 	-webkit-text-fill-color: transparent;
+  // 	background-image: linear-gradient(
+  // 	to right,
+  //     $secondary-color,
+  //     $secondary-color 50%,
+  //     $main-color 50%);
+  //     background-size: 200% 100%;
+  //     background-position: 100%;
+  // 	transition: all 1s linear;
+  // 	width:100px;
+  // 	position:relative;
+  // 	height:1.25rem;
+
+  // 		&:hover {
+  // 		  transition: all 1s ease;
+  // 		  background-position: 0%;
+  // 		}
+
+
+  // 	}
+  // 	.seemore-arrow{
+
+  // 			width:43px;
+  // 			height:10px;
+  // 			@include bg-cover;
+
+  // 		}
+  // 		.circle{
+  // 			position:absolute;
+  // 		    position: absolute;
+  // 		    width: 28px;
+  // 		    height: 28px;
+  // 		    border-radius: 100%;
+  // 		    border: 1px solid rgba(255, 255, 255, 0.5);
+  // 		    left: 126px;
+  // 		    bottom: -3px;
+  // 			&:before{
+  // 					position:absolute;
+  // 					content:'';
+  // 					// width:1.75rem;
+  // 					// height:1.75rem;
+  // 					// border-radius:100%;
+
+  // 			}
+  // 			&:after{
+  // 				position:absolute;
+  // 				content:'';
+  // 				// width:1.75rem;
+  // 				// height:1.75rem;
+  // 				// border-radius:100%;
+
+  // 			}
+  // 		}
+  // }
   .seemore {
-    @include flex-center;
-    margin-top: 2.125rem;
-    position: relative;
-
-    a {
-      text-decoration: none;
-      font-family: $playbold;
-      font-size: $seemore;
-      letter-spacing: 0.05em;
-      color: $main-color;
-      text-decoration: none;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-image: linear-gradient(
-          to right,
-          $secondary-color,
-          $secondary-color 50%,
-          $main-color 50%);
-      background-size: 200% 100%;
-      background-position: 100%;
-      transition: all 1s linear;
-      width: 100px;
-      position: relative;
-      height: 1.25rem;
-
-      &:hover {
-        transition: all 1s ease;
-        background-position: 0%;
-      }
-
-
-    }
-
-    .seemore-arrow {
-
-      width: 43px;
-      height: 10px;
-      @include bg-cover;
-
-    }
-
-    .circle {
-      position: absolute;
-      position: absolute;
-      width: 28px;
-      height: 28px;
-      border-radius: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      left: 126px;
-      bottom: -3px;
-
-      &:before {
-        position: absolute;
-        content: '';
-        // width:1.75rem;
-        // height:1.75rem;
-        // border-radius:100%;
-
-      }
-
-      &:after {
-        position: absolute;
-        content: '';
-        // width:1.75rem;
-        // height:1.75rem;
-        // border-radius:100%;
-
-      }
-    }
+    @include seemore;
   }
 }
 
 
-// @mixin mQ($arg){
-// 	@media screen and (max-width:$arg){
-// 		@content;
-// 	}
-// }
-// //big description mixin
-// @mixin dashedborder{
-// 	border-radius:20px;
-// 			border:1px dashed #3405b0;
-// }
-// @mixin text{
-// 	font-size:1rem;
-// 	line-height:1.8rem;color:#2c2727;
-// 	font-weight:600;
-// 	font-family:$nusx;
-// }
-// @mixin bigDescr{
-// 		text-align:center;
-// 		width:38%;
-// 		min-width:460px;
-// 		margin-top:3.6875rem;
-// 		margin-bottom:5rem;
-// 		@include mQ(1450px){
-// 			margin-top:3rem;
-// 		margin-bottom:3.6rem;
-// 		font-size:14px;
-// 		letter-spacing:0.5px;
 
-// 		}
-// 		@include mQ(960px){
-// 				margin-bottom:30px;
-// 			}
-// 		@include mQ(768px){
-// 			min-width:auto;
-// 			width:100%;
-// 			text-align:left;
-// 		}
-// 		h1{
-// 			font-size: 3rem;
-// 			color: $cayan;
-// 			font-family: $cubano;
-// 			margin-bottom:2.5rem;
-// 			@include mQ(1600px){
-// 				font-size:2.2rem;
-// 			}
-// 			@include mQ(960px){
-// 				margin-bottom:30px;
-// 			}
-
-
-// 		}
-// 		div{
-// 			font-size:1rem;
-// 			color:$white;
-// 			font-family: $nusx;
-// 			line-height:1.8rem;
-// 		}
-
-// }
-
-// @mixin roundicon{
-// 	border-radius:100%;
-// 	display:flex;
-// 	justify-content:center;
-// 	align-items:center;
-// 	span{
-// 		width:20px;
-// 		height:29px;
-// 		svg{
-// 		height:100%;
-// 	    width: 100%;
-// 		fill:#purple;
-// 		}
-// 	}
-
-// }
-
-// @mixin footericon{
-// 	border-radius:4.3125rem;
-// 	height:4.3125rem;
-// 	width:4.3125rem;
-// 	@include roundicon;
-// 	@include mQ(1450px){
-// 		border-radius:3.3rem;
-// 		height:3.3rem;
-// 		width:3.3rem;
-// 		span{
-// 			height:17px;
-
-// 		}
-
-// 	}
-
-// }
-// @mixin arrowRight{
-// 	width: 0px;
-//     height: 0px;
-//     border-top: 8px solid transparent;
-//     border-bottom: 8px solid transparent;
-//     border-left: 11px solid #c219ff;
-//     margin-top: -2px;
-//     margin-right: 5px;
-//     @include mQ(1280px){
-//     	border-top: 6px solid transparent;
-// 	    border-bottom: 6px solid transparent;
-// 	    border-left: 9px solid #c219ff;
-// 	    margin-top: -2px;
-// 	    margin-right: 5px;
-
-//     }
-//     @include mQ(960px){
-// 		border-top: 5px solid transparent;
-// 	    border-bottom: 5px solid transparent;
-// 	    border-left: 8px solid #2f079e;
-// 	    margin-top: -2px;
-// 	    margin-right: 5px;
-// 	}
-// }
-// @mixin title{
-// 	font-family:$cubano;
-// }
-// @mixin greyText{
-// 	font-size:1rem;
-// 	line-height:1.7rem;
-// 	color:$dgrey;
-// 	font-family:$nusx
-// }
-// @mixin title60{
-// 	font-size:3.75rem;
-// 	color:$orange;
-// 	@include title;
-
-// }
-// @mixin title36{
-// 	font-size:2.25rem;
-// 	color:$cayan;
-// 	@include title;
-// }
-// @mixin title30{
-// 	font-size:1.875rem;
-// 	color:$pink;
-// 	@include title;
-// 	@include mQ(1600px){
-// 		font-size:1.5rem;
-
-// 		}
-// 	@include mQ(960px){
-// 			font-size:1.4rem;
-// 		}
-// 		@include mQ(768px){
-// 			margin-bottom:10px;
-// 		}
-
-// }
-// @mixin title22{
-// 	@include title;
-// 	font-size: 1.375rem;
-// }
-// @mixin title18{
-// 	font-size: 1.125rem;
-// 	color:$purple;
-// 	@include title;
-// 	@include mQ(1600px){
-// 		font-size:1rem;
-// 	}
-// }
-// @mixin cayanbtn{
-// 	background:$cayan;
-// 	height:80px;
-// 	width:256px;
-// 	display:flex;
-// 	justify-content:center;
-// 	align-items:center;
-// 	color:$darkblue;
-// 	font-size: 1.25em;
-// 	border-radius:50px;
-// 	font-family:$cubano;
-// 	@include mQ(1450px){
-// 			height:60px;
-// 			width:200px;
-// 			}
-// }
-// @mixin Btn{
-// 	border-radius:10px;
-// 	height:76px;
-// 	min-width:250px;
-// 	padding:0 20px;
-// 	display:flex;
-// 	justify-content:center;
-// 	align-items:center;
-// 	@include mQ(1600px){
-// 			height:60px;
-// 			min-width:180px;
-// 			padding:0 15px;
-// 			}
-// 	span{
-// 		color:$white;
-// 		font-size:1.5rem;
-// 		font-family:$cubano;
-// 		@include mQ(1600px){
-// 			font-size:1.125rem;
-
-// 			}
-
-// 	}
-
-// }
-// @mixin purpleBtn{
-// 	background:$purple;
-// 	@include Btn;
-// }
-// @mixin cayanBtn{
-// 	background:$cayanbtn;
-// 	@include Btn;
-// }
-// @mixin purpleBrick{
-// 	background:$purple;
-// 	height:76px;
-// 	width:250px;
-// 	padding: 0 20px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// 	border-radius:10px;
-// 	letter-spacing:1px;
-
-// 	@include mQ(1450px){
-// 		height: 50px;
-// 		min-width: 164px!important;
-// 	}
-// 	@include mQ(960px){
-// 		height: 50px;
-// 		min-width: 164px;
-// 	}
-// 	span{
-// 	color: #ffffff;
-//     font-size: 1.5rem;
-//     font-family: "cubano";
-//     margin-bottom:2px;
-// 	}
-
-// }
-// @mixin tour{
-
-// 	width:100%;
-// 	@include mQ(960px){
-// 		// width:100%;
-// 		// margin-left:0px;
-
-// 	}
-// 	.holder{
-// 		align-items: flex-end;
-// 		background:$white;
-// 		border-radius:20px;
-// 		padding: 2.625rem;
-// 		@include mQ(1280px){
-// 			padding: 1.9rem;
-// 		}
-// 		@include mQ(960px){
-// 			flex-direction:column;
-// 		    align-items: flex-start;
-// 		}
-// 		@include mQ(768px){
-// 			padding:40px 20px;
-// 		}
-// 		.text-holder{
-// 			width:70%;
-// 			@include mQ(960px){
-// 				width:100%;
-
-// 			}
-// 			h1{
-// 			@include title30;
-// 				margin-bottom:3rem;
-// 				@include mQ(1450px){
-// 					margin-bottom:1.5rem;
-
-// 				}
-// 			}
-// 			div{
-// 				font-family:$nusx;
-// 				color:$dgrey;
-// 				font-size:1rem;
-// 				line-height:1.6rem;
-// 			    padding-right: 10px;
-// 		    	line-height:1.6rem;
-// 				letter-spacing:0.5px;
-// 				font-size:16px;
-// 			    @include mQ(960px){
-// 					padding-right:0px;
-// 					margin-bottom:20px;
-
-
-// 				}
-// 			}
-
-// 		}
-// 		a.btn{
-// 			@include purpleBrick;
-// 			@include mQ(1450px){
-// 				width:164px;
-// 			}
-
-// 		}
-
-
-// 	}
-
-// }

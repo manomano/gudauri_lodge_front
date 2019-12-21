@@ -240,7 +240,6 @@ nav {
   width: 6.9%;
   height: 7.5rem;
   z-index: 7;
-  padding-top: 0.5rem;
 
   span {
     font-family: $playbold;
@@ -373,9 +372,7 @@ nav {
 
     }
 
-    .text::first-letter {
-      initial-letter: 2;
-    }
+
   }
 }
 
@@ -486,6 +483,7 @@ nav {
       font-size: 6.875rem;
       top: 1%;
       right: 6.8%;
+      z-index: 7;
     }
 
     .gastronomy-slider-holder {
@@ -495,7 +493,7 @@ nav {
       bottom: 0;
       left: 0px;
       @include bg-cover;
-      background-image: url('../images/khasheria_slide_1.png')
+      /*background-image: url('../images/khasheria_slide_1.png')*/
 
     }
 
@@ -718,6 +716,7 @@ nav {
     background-color: $beige;
     position: relative;
     @include parentwidth;
+    padding-bottom: 6.875rem;
 
     &:after {
       content: '';
@@ -802,32 +801,47 @@ nav {
 
   }
 
-  .footer {
-    @include flex-center;
+
+}
+
+.footer {
+  @include flex-center;
+  @include between;
+  width: 100%;
+  height: 6.875rem;
+  background: $header;
+  padding: 0px 5.2%;
+  position: absolute;
+  bottom: 0px;
+
+  .social-networks {
     @include between;
-    width: 100%;
-    height: 6.875rem;
-    background: $header;
-    padding: 0px 5.2%;
 
-    .social-networks {
-      @include between;
-
-      a {
-        text-transform: capitalize;
-        font-family: $robotoreg;
-        font-weight: 500;
-        font-size: $oneem;
-        color: $white;
-        margin-right: 33px;
-      }
+    a {
+      text-transform: capitalize;
+      font-family: $robotoreg;
+      font-weight: 500;
+      font-size: $oneem;
+      color: $white;
+      margin-right: 33px;
     }
-
-    .privacy-and-terms {
-      @extend .social-networks;
-    }
-
   }
 
+  .privacy-and-terms {
+    @extend .social-networks;
+  }
+
+}
+
+
+.description .text:first-letter {
+  float: left;
+  font-family: $playbold;
+  font-size: 3.125rem;
+  margin-bottom: 10px;
+  padding-top: 13px;
+  margin-right: 25px;
+  initial-letter: 2;
+  text-transform: uppercase;
 
 }

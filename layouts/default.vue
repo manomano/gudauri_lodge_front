@@ -34,14 +34,14 @@
         </NuxtLink>
       </div>
     </header>
-    <a href="   " class="booking">
+    <!--<a href="   " class="booking">
             <span>
                 book
             </span>
       <span>
                 now
             </span>
-    </a>
+    </a>-->
     <Nuxt/>
   </div>
 </template>

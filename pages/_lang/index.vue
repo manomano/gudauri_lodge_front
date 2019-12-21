@@ -18,19 +18,20 @@
           <div class="text">
             {{$store.state.intro.page_description[$store.state.locale]}}
           </div>
-          <div class="seemore">
-            <div class="seemore">
-              <a href="" class="">
-                see more
-              </a>
-              <span class="seemore-arrow" :style="{backgroundImage:`url(${seemore})`}">
+
+          <a href="" class="seemore">
+                                <span class="btn-text">
+                                    see more
+                                </span>
+            <span class="seemore-arrow" :style="{backgroundImage:`url(${seemore})`}">
 
                                 </span>
-              <span class="circle">
+            <span class="circle">
 
                                 </span>
-            </div>
-          </div>
+          </a>
+
+
         </div>
       </div>
     </div>
@@ -74,15 +75,17 @@
               <div class="text">
                 {{$store.state.roomGeneral.page_description[$store.state.locale]}}
               </div>
-              <div class="seemore">
-                <a href="" class="">
-                  see more
-                </a>
+              <a href="" class="seemore">
+                                <span class="btn-text">
+                                     see more
+                                </span>
                 <span class="seemore-arrow" :style="{backgroundImage:`url(${seemore})`}">
 
                                 </span>
-                <span class="circle"></span>
-              </div>
+                <span class="circle">
+
+                                </span>
+              </a>
 
             </div>
           </div>
@@ -217,7 +220,14 @@
       </div>
 
     </div>
-
+    <a href="   " class="booking">
+            <span>
+                book
+            </span>
+      <span>
+                now
+            </span>
+    </a>
   </div>
 
 
